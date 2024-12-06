@@ -1,24 +1,12 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-const pronombres = ["tus", "mi", "mis", "tu"];
-const adjetivos = ["grandes", "nueva", "tremendo", "rapido"];
-const sustantivos = [
-  "jardines",
-  "cambio",
-  "casa",
-  "telecom",
-  "ciborg",
-  "internet"
-];
-
-const dominios = ["es", "com", "org", "net", "io"];
 
 function domainHack(str) {
+  const dominios = ["es", "com", "org", "net", "io"];
   if (
     typeof str == "string" &&
     dominios.some(dominio => str.includes(dominio))
@@ -34,17 +22,26 @@ function domainHack(str) {
         return str.replace("es", ".es");
       case str.endsWith("io"):
         return str.replace("io", ".io");
-
       default:
         break;
     }
   }
-  return str + "." + dominios[Math.floor(Math.random() * dominios.length)];
+  const result = str + "." + dominios[Math.floor(Math.random() * dominios.length)];
+  return result;
 }
 
-window.onload = function() {
-  //write your code here
 
+window.onload = function() {
+  const pronombres = ["tus", "mi", "mis", "tu"];
+  const adjetivos = ["grandes", "nueva", "tremendo", "rapido"];
+  const sustantivos = [
+    "jardines",
+    "cambio",
+    "casa",
+    "telecom",
+    "ciborg",
+    "internet"
+  ];
   for (const pron of pronombres) {
     for (const adj of adjetivos) {
       for (const sust of sustantivos) {
